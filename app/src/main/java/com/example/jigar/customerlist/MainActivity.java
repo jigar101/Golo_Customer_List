@@ -26,10 +26,13 @@ public class MainActivity extends AppCompatActivity {
     public void loadData()
     {
         recyclerView = (RecyclerView)findViewById(R.id.rvList);
+        // use this to improve performance that changes in content do not affect the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
+        // use a linear layout manager
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
 
+        // Specify an Adapter
         data = new ArrayList<>(Arrays.asList(ApiCaller.getCustomers()));
         adapter = new CustomerAdapter(data);
         recyclerView.setAdapter(adapter);

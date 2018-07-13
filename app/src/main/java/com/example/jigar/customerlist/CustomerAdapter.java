@@ -9,21 +9,27 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+// Provide a reference to the views for each data item Complex data may require more than one view per item, and
+// provide access to all the views for a data item in a view holder
+
 public class CustomerAdapter extends  RecyclerView.Adapter<CustomerAdapter.ViewHolder> {
 
     private ArrayList<Customer> Customer;
 
 
+    // Provide a constructor
     public CustomerAdapter(ArrayList<Customer> Customer) {
         this.Customer = Customer;
     }
 
+    // Create new views which are invoked by the layout manager
     @Override
     public CustomerAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list, viewGroup, false);
         return new CustomerAdapter.ViewHolder(view);
     }
 
+    // Replace the contents of a view
     @Override
     public void onBindViewHolder(CustomerAdapter.ViewHolder viewHolder, int i) {
 
@@ -32,7 +38,7 @@ public class CustomerAdapter extends  RecyclerView.Adapter<CustomerAdapter.ViewH
         viewHolder.phone.setText(Customer.get(i).getPhoneNumber());
 
     }
-
+    // Return the size of your dataset
     @Override
     public int getItemCount() {
         return Customer.size();
