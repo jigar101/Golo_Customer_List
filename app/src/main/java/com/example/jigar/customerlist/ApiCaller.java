@@ -1,4 +1,4 @@
-package com.example.jigar.customerlist;package [YOUR PACKAGE NAME];
+package com.example.jigar.customerlist;
 
 import android.support.annotation.Nullable;
 
